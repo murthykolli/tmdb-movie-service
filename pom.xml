@@ -77,6 +77,22 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+
+					<!--For Docker image build and push purpose code-->
+
+					<image>
+						<name>docker.io/murthykolli/${project.artifactId}:${project.version}</name>
+						<publish>true</publish>
+					</image>
+
+					<!--Docker Credentials creation-->
+
+					<docker>
+						<publishRegistry>
+							<username>${env.DOCKERHUB_USER}</username>
+							<password>${env.DOCKERHUB_PWD}</password>
+						</publishRegistry>
+					</docker>
 				</configuration>
 			</plugin>
 		</plugins>
